@@ -1,0 +1,157 @@
+Wilayah,Sumber,Potensi,Energi,Tahun
+Makassar,Surya,50,Listrik,2023
+Maros,Angin,200,Listrik,2023
+Selayar,Surya,500,Listrik,2023
+Parepare,Angin,250,Listrik,2023
+Takalar,Angin,400,Listrik,2024
+Jeneponto,Angin,500,Listrik,2023
+Sidrap,Angin,700,Listrik,2023
+Tana Toraja,Air,800,Listrik,2024
+Gowa,Air,20,Listrik,2023
+Luwu Timur,Air,365,Listrik,2024
+Bone,Air,250,Listrik,2024
+Bulukumba,Angin,350,Listrik,2023
+Bantaeng,Bioenergi,50,Listrik,2024
+Barru,Air,140,Listrik,2024
+Enrekang,Air,200,Listrik,2024
+Luwu,AIr,130,Listrik,2023
+Luwu Utara,Air,480,Listrik,2023
+Pangkep,Angin,33,Listrik,2024
+Sinjai,Air,227,Listrik,2024
+Soppeng,Air,265,Listrik,2023
+Toraja Utara,Air,138,Listrik,2023
+Wajo,Panas Bumi,503,Listrik,2023
+Makassar,Surya,50,Listrik,2024
+Makassar,Bioenergi,10,Biogas,2024
+Maros,Angin,200,Listrik,2024
+Maros,Bioenergi,15,Biogas,2023
+Selayar,Surya,500,Listrik,2024
+Selayar,Angin,100,Listrik,2023
+Selayar,Bioenergi,20,Biomassa,2024
+Parepare,Angin,250,Listrik,2024
+Parepare,Panas Bumi,30,Listrik,2024
+Takalar,Angin,400,Listrik,2023
+Jeneponto,Angin,500,Listrik,2023
+Jeneponto,Bioenergi,50,Biomassa,2023
+Sidrap,Angin,700,Listrik,2024
+Tana Toraja,Air,800,Listrik,2024
+Gowa,Air,20,Listrik,2023
+Luwu Timur,Air,365,Listrik,2023
+Bone,Air,250,Listrik,2023
+Bulukumba,Angin,350,Listrik,2024
+Bulukumba,Bioenergi,50,Biomassa,2023
+Selayar,Panas Bumi,33,Listrik,2022
+Bulukumba,Panas Bumi,32,Listrik,2022
+Bantaeng,Panas Bumi,9,Listrik,2022
+Jeneponto,Panas Bumi,17,Listrik,2022
+Takalar,Panas Bumi,14,Listrik,2022
+Gowa,Panas Bumi,47,Listrik,2022
+Sinjai,Panas Bumi,20,Listrik,2022
+Maros,Panas Bumi,40,Listrik,2022
+Pangkep,Panas Bumi,28,Listrik,2022
+Barru,Panas Bumi,29,Listrik,2022
+Bone,Panas Bumi,114,Listrik,2022
+Soppeng,Panas Bumi,39,Listrik,2022
+Wajo,Panas Bumi,6,Listrik,2022
+Sidrap,Panas Bumi,47,Listrik,2022
+Pinrang,Panas Bumi,49,Listrik,2022
+Enrekang,Panas Bumi,44,Listrik,2022
+Luwu,Panas Bumi,83,Listrik,2022
+Tana Toraja,Panas Bumi,49,Listrik,2022
+Luwu Utara,Panas Bumi,185,Listrik,2022
+Luwu Timur,Panas Bumi,173,Listrik,2022
+Makassar,Panas Bumi,4,Listrik,2022
+Enrekang,Air,72,Listrik,2023
+Luwu Utara,Mikrohidro,8,Listrik,2023
+Bantaeng,Mikrohidro,1,Listrik,2023
+Maros,Mikrohidro,5,Listrik,2024
+Enrekang,Mikrohidro,9,Listrik,2023
+Bulukumba,Mikrohidro,3,Listrik,2023
+Selayar,Bioenergi,11,Biogas,2021
+Selayar,Bioenergi,11,Biogas,2022
+Bulukumba,Bioenergi,34,Biogas,2021
+Bulukumba,Bioenergi,31,Biogas,2022
+Bantaeng,Bioenergi,11,Biogas,2021
+Bantaeng,Bioenergi,11,Biogas,2022
+Jeneponto,Bioenergi,35,Biogas,2021
+Jeneponto,Bioenergi,35,Biogas,2022
+Takalar,Bioenergi,14,Biogas,2021
+Takalar,Bioenergi,14,Biogas,2022
+Gowa,Bioenergi,41,Biogas,2021
+Gowa,Bioenergi,41,Biogas,2022
+Sinjai ,Bioenergi,41,Biogas,2021
+Sinjai ,Bioenergi,42,Biogas,2022
+Maros,Bioenergi,30,Biogas,2021
+Maros,Bioenergi,29,Biogas,2022
+Pangkep,Bioenergi,16,Biogas,2021
+Pangkep,Bioenergi,16,Biogas,2022
+Barru,Bioenergi,21,Biogas,2021
+Barru,Bioenergi,20,Biogas,2022
+Bone,Bioenergi,162,Biogas,2021
+Bone,Bioenergi,156,Biogas,2022
+Soppeng,Bioenergi,12,Biogas,2021
+Soppeng,Bioenergi,13,Biogas,2022
+Wajo,Bioenergi,48,Biogas,2021
+Wajo,Bioenergi,51,Biogas,2022
+Pinrang,Bioenergi,12,Biogas,2021
+Pinrang,Bioenergi,11,Biogas,2022
+Sidrap,Bioenergi,12,Biogas,2021
+Sidrap,Bioenergi,10,Biogas,2022
+Enrekang,Bioenergi,16,Biogas,2021
+Enrekang,Bioenergi,15,Biogas,2022
+Luwu,Bioenergi,7,Biogas,2021
+Luwu,Bioenergi,7,Biogas,2022
+Tana Toraja,Bioenergi,7,Biogas,2021
+Tana Toraja,Bioenergi,5,Biogas,2022
+Makassar,Bioenergi,45,Bioetanol,2022
+Makassar,Bioenergi,50,Bioetanol,2023
+Parepare,Bioenergi,2,Bioetanol,2022
+Parepare,Bioenergi,2,Bioetanol,2023
+Bulukumba,Bioenergi,102,Bioetanol,2022
+Bulukumba,Bioenergi,113,Bioetanol,2023
+Bantaeng,Bioenergi,138,Bioetanol,2022
+Bantaeng,Bioenergi,152,Bioetanol,2023
+Jeneponto,Bioenergi,151,Bioetanol,2022
+Jeneponto,Bioenergi,166,Bioetanol,2023
+Takalar,Bioenergi,20,Bioetanol,2022
+Takalar,Bioenergi,22,Bioetanol,2023
+Gowa,Bioenergi,113,Bioetanol,2022
+Gowa,Bioenergi,124,Bioetanol,2023
+Sinjai,Bioenergi,13,Bioetanol,2022
+Sinjai,Bioenergi,15,Bioetanol,2023
+Maros,Angin,46,Listrik,2021
+Maros,Surya ,40,Listrik,2023
+Maros,Bioenergi,74,Biomassa,2023
+Maros,Panas Bumi,25,Listrik,2021
+Pangkep,Angin,33,Listrik,2021
+Pangkep,Surya,28,Listrik,2021
+Pangkep,Bioenergi,43,Listrik,2021
+Barru,Angin,60,Listrik,2021
+Barru,Surya,29,Listrik,2021
+Barru,Panas Bumi,25,Listrik,2021
+Bone,Angin,77,Listrik,2021
+Bone,Surya,114,Listrik,2021
+Bone,Panas Bumi,25,Listrik,2021
+Soppeng,Angin,41,Listrik,2021
+Soppeng,Surya,39,Listrik,2021
+Soppeng,Panas Bumi,5,Listrik,2021
+Wajo,Angin,15,Listrik,2021
+Wajo,Surya,63,Listrik,2021
+Wajo,Bioenergi,125,Biogas,2021
+Wajo,Panas Bumi,25,Listrik,2021
+Sidrap,Angin,32,Listrik,2021
+Sidrap,Surya,47,Listrik,2021
+Sidrap,Bioenergi,39,Biogas,2021
+Sidrap,Panas Bumi,25,Listrik,2021
+Pinrang,Angin,33,Listrik,2021
+Pinrang,Surya,49,Listrik,2021
+Pinrang,Bioenergi,28,Biogas,2021
+Pinrang,Panas Bumi,25,Listrik,2021
+Maros,Air,5,Listrik,2021
+Pangkep,Mikrohidro,5,Listrik,2021
+Barru,Mikrohidro,20,Listrik,2021
+Bone,Air,126,Listrik,2021
+Soppeng,Air,227,Listrik,2021
+Wajo,Mikrohidro,4,Listrik,2021
+Sidrap,Air,70,Listrik,2021
+Enrekang,Air,10,Listrik,2021
