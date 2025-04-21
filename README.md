@@ -35,6 +35,5 @@ prediksi-potensi-energi-terbarukan/
 Buka browser dan akses aplikasi di alamat berikut:
 
 ```Run
-Copy code
 http://127.0.0.1:5000
 ```
