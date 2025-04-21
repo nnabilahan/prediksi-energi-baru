@@ -18,6 +18,7 @@ python app.py
 ```
 
 ### 📁 Struktur Proyek
+```
 prediksi-potensi-energi-terbarukan/
 │
 ├── app.py                # File utama aplikasi Flask
@@ -30,7 +31,7 @@ prediksi-potensi-energi-terbarukan/
 │
 └── data/                 # Folder untuk menyimpan data historis
     └── data.csv          # Contoh file data historis
-
+```
 ### 2. Akses Aplikasi
 Buka browser dan akses aplikasi di alamat berikut:
 
