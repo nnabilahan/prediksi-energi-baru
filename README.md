@@ -39,3 +39,4 @@ Buka browser dan akses aplikasi di alamat berikut:
 ```Run
 http://127.0.0.1:5000
 ```
+#prediksi-energi-baru
