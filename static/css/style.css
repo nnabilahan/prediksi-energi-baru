@@ -86,6 +86,23 @@ h2 {
     list-style: none !important;
 }
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1, h2 {
+    font-weight: bold;
+}
+
+.card {
+    border-radius: 12px;
+    background-color: #ffffff;
+}
+
+#hasil {
+    max-width: 600px;
+    margin: 0 auto;
+}
 
 
 /* body {

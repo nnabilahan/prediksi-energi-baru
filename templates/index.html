@@ -1,178 +1,90 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Prediksi Energi Terbarukan</title>
-    <!-- <link rel="stylesheet" href="../statis/css/style.css"> -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
+  <meta charset="UTF-8">
+  <title>Prediksi Energi Terbarukan</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Prediksi Potensi Energi Terbarukan (2025–2030)</h1>
+<body class="bg-light text-dark">
 
-    <form id="predictionForm" method="POST">
-        <label for="sumber">Pilih jenis sumber energi:</label>
-        <select name="sumber" id="sumber" required>
+  <!-- Tombol Kembali -->
+  <a href="{{ url_for('home') }}" class="btn btn-outline-secondary position-absolute top-0 start-0 m-3">
+    ⬅️ Kembali ke Beranda
+  </a>
+
+  <div class="container py-5">
+    <h1 class="text-center mb-4">🔋 Prediksi Potensi Energi Terbarukan</h1>
+
+    <!-- Form Prediksi -->
+    <form id="predictionForm" method="POST" class="mb-4">
+      <div class="row justify-content-center g-2">
+        <div class="col-md-6">
+          <label for="sumber" class="form-label fw-bold">Pilih jenis sumber energi:</label>
+          <select name="sumber" id="sumber" class="form-select form-select-lg" required>
             {% for sumber in sumber_list %}
             <option value="{{ sumber }}">{{ sumber }}</option>
             {% endfor %}
-        </select>
-        <button type="submit">Prediksi</button>
+          </select>
+        </div>
+        <div class="col-md-2 d-grid align-self-end">
+          <label class="form-label d-none d-md-block">&nbsp;</label>
+          <button type="submit" class="btn btn-primary btn-lg">🔮 Prediksi</button>
+        </div>
+      </div>
     </form>
 
-    <h2>Hasil Prediksi:</h2>
-    <div id="hasil"></div>
+    <!-- Hasil Prediksi -->
+    <h2 class="text-center">📊 Hasil Prediksi:</h2>
+    <div id="hasil" class="mt-3"></div>
+  </div>
 
-    <script>
-        document.getElementById("predictionForm").addEventListener("submit", async function (e) {
-            e.preventDefault();
-            const sumber = document.getElementById("sumber").value;
+  <script>
+    document.getElementById("predictionForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-            const formData = new FormData();
-            formData.append("sumber", sumber);
+      const sumber = document.getElementById("sumber").value;
+      const formData = new FormData();
+      formData.append("sumber", sumber);
 
-            const response = await fetch("/predict", {
-                method: "POST",
-                body: formData
-            });
+      const resultDiv = document.getElementById("hasil");
+      resultDiv.innerHTML = '<div class="text-center">⏳ Memuat prediksi...</div>';
 
-            const resultDiv = document.getElementById("hasil");
-            resultDiv.innerHTML = "";
+      const response = await fetch("/predict", {
+        method: "POST",
+        body: formData
+      });
 
-            if (response.ok) {
-                const data = await response.json();
-                resultDiv.innerHTML += `<h3>${data.sumber}</h3><ul>`;
-                data.prediksi.forEach(item => {
-                    resultDiv.innerHTML += `<li>${item.Tahun}: ${item.yhat.toFixed(2)} MW</li>`;
-                    
-                });
-                resultDiv.innerHTML += "</ul>";
-                
-            } else {
-                const error = await response.json();
-                resultDiv.textContent = `Error: ${error.error}`;
-            }
+      resultDiv.innerHTML = "";
+
+      if (response.ok) {
+        const data = await response.json();
+        let content = `
+          <div class="card shadow p-3">
+            <h3>${data.sumber}</h3>
+            <ul class="list-group">`;
+
+        data.prediksi.forEach(item => {
+          content += `<li class="list-group-item">${item.Tahun}: <strong>${item.yhat.toFixed(2)} MW</strong></li>`;
         });
-    </script>
+
+        content += `</ul>
+            <a href="/download/${sumber}" target="_blank" class="btn btn-success mt-3">⬇️ Download PDF</a>
+            <div id="insightBox" class="mt-3 alert alert-info" style="white-space: pre-line;"></div>
+          </div>`;
+
+        resultDiv.innerHTML = content;
+
+        // Fetch Insight
+        const insight = await fetch(`/insight/${sumber}`);
+        const insightData = await insight.json();
+        document.getElementById("insightBox").textContent = insightData.insight;
+
+      } else {
+        const error = await response.json();
+        resultDiv.innerHTML = `<div class="alert alert-danger">Error: ${error.error}</div>`;
+      }
+    });
+  </script>
+
 </body>
 </html>
-
-
-
-<!-- hapus aja ini untuk mbul sendiri -->
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prediksi Energi Terbarukan</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            margin-top: 50px;
-            width: 80%;
-            margin-left: 10%;
-            margin-right: 10%;
-        }
-
-        #chart {
-            max-width: 100%;
-            height: 400px;
-            margin-bottom: 50px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .alert {
-            padding: 15px;
-            background-color: #f44336;
-            color: white;
-            margin-top: 20px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 1.2rem;
-            margin-top: 20px;
-        }
-        .btn:hover {
-            background-color: #45a049;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Prediksi Potensi Energi Terbarukan</h1>
-
-        {% if chart_data %}
-            <canvas id="chart"></canvas>
-            <button class="btn" onclick="window.location.reload();">Coba Lagi</button>
-        {% else %}
-            <div class="alert">
-                Tidak ada data prediksi yang ditemukan.
-            </div>
-        {% endif %}
-    </div>
-
-    <script>
-        {% if chart_data %}
-            var chartData = {{ chart_data | tojson }};
-            
-            var years = chartData.map(function(item) { return item.Tahun; });
-            var predictedValues = chartData.map(function(item) { return item.yhat; });
-
-            var ctx = document.getElementById('chart').getContext('2d');
-            var chart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: years,
-                    datasets: [{
-                        label: 'Prediksi Potensi Energi Terbarukan',
-                        data: predictedValues,
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        fill: true
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Tahun'
-                            }
-                        },
-                        y: {
-                            title: {
-                                display: true,
-                                text: 'Potensi (MW)'
-                            }
-                        }
-                    }
-                }
-            });
-        {% else %}
-            alert("Tidak ada data prediksi yang ditemukan.");
-        {% endif %}
-    </script>
-</body>
-</html> -->

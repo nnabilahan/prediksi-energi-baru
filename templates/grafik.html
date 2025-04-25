@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Grafik Energi Terbarukan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    body {
+      background-color: #f4fdf9;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      padding: 60px 15px 40px;
+    }
+
+    #grafik {
+      width: 100%;
+      height: 600px;
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .title-icon {
+      font-size: 2.2rem;
+      margin-right: 10px;
+    }
+
+    h1 {
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      #grafik {
+        height: 400px;
+      }
+
+      .title-icon {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tombol Kembali -->
+  <a href="{{ url_for('home') }}" class="btn btn-outline-secondary back-btn">
+    ⬅️ Kembali ke Beranda
+  </a>
+
+  <div class="container text-center">
+    <h1 class="my-4"><span class="title-icon">📈</span>Grafik Potensi Energi Terbarukan</h1>
+    <div id="grafik"></div>
+  </div>
+
+  <script>
+    async function loadGrafik() {
+      try {
+        const res = await fetch("/all_data");
+        const data = await res.json();
+
+        const traces = [];
+
+        for (const sumber in data) {
+          const years = data[sumber].map(item => item.Tahun);
+          const potentials = data[sumber].map(item => item.Potensi);
+
+          traces.push({
+            x: years,
+            y: potentials,
+            mode: 'lines+markers',
+            name: sumber,
+            line: { shape: 'spline' }
+          });
+        }
+
+        const layout = {
+          title: {
+            text: 'Prediksi Potensi Energi Terbarukan per Sumber',
+            font: { size: 20 }
+          },
+          xaxis: {
+            title: 'Tahun',
+            tickformat: 'd'
+          },
+          yaxis: {
+            title: 'Potensi (MW)'
+          },
+          legend: {
+            orientation: 'h',
+            y: -0.2
+          },
+          margin: { t: 60, b: 80, l: 60, r: 40 }
+        };
+
+        Plotly.newPlot('grafik', traces, layout, { responsive: true });
+      } catch (err) {
+        console.error("Gagal memuat grafik:", err);
+        document.getElementById("grafik").innerHTML = "<p class='text-danger'>Gagal memuat grafik. Silakan coba lagi nanti.</p>";
+      }
+    }
+
+    loadGrafik();
+  </script>
+</body>
+</html>
